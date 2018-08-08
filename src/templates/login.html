@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>MyAPP | Login</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container" action="">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Login</button>    
+            <a href="/register/">click here to register</a>
+        </form>
+    </div>
+{% endblock %}

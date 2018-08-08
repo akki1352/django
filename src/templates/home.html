@@ -1,0 +1,40 @@
+{% include 'index.html' %}
+
+{% block title %}
+	<title>MyApp | Home</title>
+{% endblock %}
+
+{% block content %}
+
+	<div class="album py-5 bg-light">
+		<form method="POST" name="product" action="">
+		<div class="container">
+			
+			<div class="row">
+				{% for e in data %}
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						{% load static %}
+				  		<!--<img src="{% static "img/i1.jpeg" %}" alt="Card image cap" style="width: 200; height: 150;">-->
+				  		<div class="card-body">
+							<p class="card-text" style="display: inline" >Product name :  <p name="pname" style="display: inline">{{e.product}}</p></p>
+							<p class="card-text" style="display: inline" >price : <p name="pprice" style="display: inline">{{e.price}}</p></p>
+							<p>Quantity   <input name="pqty" type="number" style="width: 70px;" value="1" min="1" max="10" /></p>
+							<div class="d-flex justify-content-between align-items-center">
+					  			<div class="btn-group">
+									<a type="button" class="btn btn-sm btn-primary" >Buy</a>
+									<a type="submit" class="btn btn-sm btn-secondary" href="/cart/?id={{e.id}}">Add to Cart</a>
+					  			</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				
+			</div>
+		
+		</div>
+	</form>
+	</div>
+  
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+			
+			{% block title%}
+			{% endblock %}
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<div class="jumbotron text-center jumbotron-heading" style="padding: 10px;" >
+			<h1>Price Drop</h1>
+		</div>
+		
+		<div>
+			{% block content %}
+				Hello {{ uname }}
+				{{ id }}
+				{{ nm }}
+				<table class="table">
+					<tr style="border-style: solid;">
+						<td>Id</td>
+						<td>User Name</td>
+						<td>Email-Id</td>
+						<td>Product Id</td>
+						<td>Product Name</td>
+						<td>Product Price</td>
+						<td>Quantity</td>
+					</tr>
+				{% for e in data %}
+					{% if e.bookName == uname %}
+						<tr>
+							<td>{{e.id}}</td>
+							<td>{{e.bookName}}</td>
+							<td>{{e.email}}</td>
+							<td>{{e.bookId}}</td>
+							<td>{{e.product}}</td>
+							<td>{{e.price}}</td>
+							<td>{{e.Quantity}}</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+			</table>
+			{% endblock %}	
+		</div>
+	</body>
+</html>
