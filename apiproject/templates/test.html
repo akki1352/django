@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <style>
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+      th, td {
+      padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="displayController">
+      <table style="width:100%">
+        <tr ng-repeat="data in datas">
+            <td ng-bind="data.id"></td>
+            <td ng-bind="data.first_name"></td>
+            <td ng-bind="data.last_name"></td>
+            <td ng-bind="data.emp_id"></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      angular.module('MyApp', [])
+      .controller('displayController', function($scope, $http) {
+      var url = "http://127.0.0.1:8000/emp/";
+      $http.get(url).success(function (response) {
+      $scope.datas = response;
+      });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>API PROJECT | CLASS</title>
+{% endblock %}
+
+{% block body %}
+    {% verbatim %}
+    <div class="container">
+        <input type="text" ng-model="name"/>
+        <p>{{name}}</p>
+    </div>
+    {% endverbatim %}
+{% endblock %}
